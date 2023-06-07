@@ -1,8 +1,8 @@
 import React from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
-import Greeting from './components/Greeting'
 import Post from './components/Post'
+import Greeting from './components/Greeting'
 
 // * Data from database
 const posts = [
