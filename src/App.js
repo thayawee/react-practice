@@ -1,35 +1,36 @@
 import React from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
-import Post from './components/Post'
-import Greeting from './components/Greeting'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Profile from './pages/Profile'
+import Create from './pages/Create'
 
 // * Data from database
-const posts = [
-  {
-    id: 1,
-    title: "Let's learn React!",
-  },
-  {
-    id: 2,
-    title: 'How to install Node.js',
-  },
-  {
-    id: 3,
-    title: 'Basic HTML',
-  },
-]
+// const initPosts = [
+//   {
+//     id: 1,
+//     title: "Let's learn React!",
+//   },
+//   {
+//     id: 2,
+//     title: 'How to install Node.js',
+//   },
+//   {
+//     id: 3,
+//     title: 'Basic HTML',
+//   },
+// ]
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Greeting name="m" />
-      <div className="feed-container">
-        {posts.map((post) => {
-          return <Post key={post.id} post={post} />
-        })}
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/create" element={<Create />} />
+      </Routes>
     </div>
   )
 }

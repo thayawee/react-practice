@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import classes from './Post.module.css'
+
 const post = (props) => {
   const { post } = props
   const [isShow, setIsShow] = useState(false)
@@ -17,6 +18,7 @@ const post = (props) => {
     <div className={classes.post}>
       <p>id: {post.id}</p>
       <p>title: {post.title}</p>
+      <p>body: {post.body}</p>
       {isShow && <p>more post information...</p>}
       <button onClick={toggleShow}>{isShow ? 'Show Less' : 'Show More'}</button>
     </div>
