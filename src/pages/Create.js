@@ -27,7 +27,7 @@ const Create = () => {
 
       console.log(data)
 
-      setPosts([...posts, data])
+      // setPosts([...posts, data])
     } catch (err) {
       console.log(err)
     }

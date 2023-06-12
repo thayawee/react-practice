@@ -1,24 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import classes from './Greeting.module.css'
-const Greeting = (props) => {
-  // const name = 'm'
-  // const { name } = props
-  // const isLogin = false
-  const [name, setName] = useState('m')
+import { useAuth } from '../providers/AuthProvider'
 
-  const handleClick = () => {
-    setName('john')
-  }
+const Greeting = () => {
+  const { username } = useAuth()
 
   return (
-    <>
-      <div className={classes.card}>
-        <h3>Welcome!</h3>
-        <p>{name}</p>
-        {/* <p>{isLogin ? name : 'Unknown'}</p> */}
-      </div>
-      <button onClick={handleClick}>Change name</button>
-    </>
+    <div className={classes.card}>
+      <h3>Welcome!</h3>
+      <p>{username}</p>
+    </div>
   )
 }
 

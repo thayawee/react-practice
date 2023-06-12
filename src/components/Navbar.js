@@ -1,8 +1,13 @@
 import React from 'react'
 import classes from './Navbar.module.css'
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../providers/AuthProvider'
 
 const Navbar = () => {
+  const { isLoggedIn, logout } = useAuth()
+
+  console.log('from navbar:', isLoggedIn)
+
   return (
     <nav className={classes.navbar}>
       <div className={classes.menu}>
@@ -12,16 +17,21 @@ const Navbar = () => {
         </NavLink>
       </div>
       <div className={classes.menu}>
-        <NavLink to="/profile" className={(arg) => (arg.isActive ? classes.active : undefined)}>
-          Profile
-        </NavLink>
+        {isLoggedIn ? (
+          <>
+            <NavLink to="/profile" className={(arg) => (arg.isActive ? classes.active : undefined)}>
+              Profile
+            </NavLink>
+            <NavLink to="/login" className={(arg) => (arg.isActive ? classes.active : undefined)}>
+              <button onClick={logout}>Logout</button>
+            </NavLink>
+          </>
+        ) : (
+          <NavLink to="/login" className={(arg) => (arg.isActive ? classes.active : undefined)}>
+            <button>Login</button>
+          </NavLink>
+        )}
       </div>
-      <div className={classes.menu}>
-        <NavLink to="/create" className={(arg) => (arg.isActive ? classes.active : undefined)}>
-          Create
-        </NavLink>
-      </div>
-      <button>Login</button>
     </nav>
   )
 }

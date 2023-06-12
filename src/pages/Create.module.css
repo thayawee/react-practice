@@ -3,7 +3,8 @@
     flex-direction: column;
     width: max-content;
     height: auto;
-    background-color: #c8c8c8;
+    background-color: white;
+    box-shadow: 0 0 10px 5px rgb(0 0 0 / 0.1);
     padding: 10px 8px;
     border-radius: 6px;
     gap: 5px;
